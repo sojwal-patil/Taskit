@@ -1,0 +1,47 @@
+{% extends "base.html" %} {%block title%}ToDoList{%endblock title%} 
+
+{%block content%}
+
+<h1 class="main-heading">To Do List</h1>
+
+<form method="POST" class="create">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="create-btn">Create</button>
+</form>
+
+<div class="center">
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Deadline</th>
+    <th>Created At</th>
+    <th>Category</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+
+  {%for task in tasks %}
+  <tr>
+    <td>{{task.task_name}}</td>
+    <td>{{task.deadline}}</td>
+    <td>{{task.created_at}}</td>
+    <td>{{task.get_category_display}}</td>
+
+    <td>
+        <form action="{% url "delete" task.id %}" method="POST">
+            {%csrf_token%}
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+
+    <td>
+        <a href="{%url "edit" task.id %}">Edit</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+{%endblock content%}
