@@ -4,14 +4,17 @@ from .forms import TaskForm
 # Create your views here.
 
 def index(request):
-    tasks = Task.objects.all().order_by("-id")
-    if request.method == "POST":
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("index")
+    if request.user.is_authenticated:
+        tasks = Task.objects.all().order_by("-id")
+        if request.method == "POST":
+            form = TaskForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect("index")
+        else:
+            form = TaskForm()
     else:
-        form = TaskForm()
+        return redirect("accounts:login")
 
     context = {
         "form" :form,

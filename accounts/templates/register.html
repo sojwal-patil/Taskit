@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+</head>
+<body>
+
+<div class="login-wrapper">
+    <div class="login-fields">
+        <h1 class="login-title">Create Account</h1>
+        <p class="login-subtitle">Fill in your details to get started.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="name-row">
+                {{ register_form.first_name }}
+                {{ register_form.last_name }}
+            </div>
+
+            {{ register_form.email }}
+            {{ register_form.username }}
+            {{ register_form.password }}
+
+            <button type="submit" class="login-button">Register</button>
+        </form>
+
+        <div class="signup-row">
+            Already have an account? <a href="{% url 'accounts:login' %}">Sign In</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

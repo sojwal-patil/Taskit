@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-52lptcupi$+39(j&s#4tm$))m*ypsl!_!nm-szyo0aget!%%e$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todo-list-u29j.onrender.com']
+ALLOWED_HOSTS = ['todo-list-u29j.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -83,13 +84,21 @@ DATABASES = {
         "NAME": "postgres",
         "USER": os.getenv("DBUSER"),
         "PASSWORD": os.getenv("DBPASSWORD"),
-        "HOST": "aws-1-ap-south-1.pooler.supabase.com",
-        "PORT": "6543",
+        "HOST": "aws-1-ap-south-1.pooler.supabase.com", # Direct host
+        "PORT": "5432",                                # Direct port
         "OPTIONS": {
-            "sslmode": "require"
+            "sslmode": "require",
+            "connect_timeout": 10,                     # Put both options in one dict
         },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
