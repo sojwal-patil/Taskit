@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "accounts/main.css" %}">
+    <link rel="shortcut icon" href="{% static "logo-short.png" %}" type="image/x-icon">
+    <title>Login | Taskit</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-div">
+            <img src="{% static "logo.png" %}" alt="Taskit Logo" class="auth-image">
+            <h7>Log in to continue</h7>
+
+            <span>Email</span>
+            <input type="email" name="email" id="email-login" placeholder="Enter Email" required>
+
+            <span>Password</span>
+            <input type="password" name="password" id="password-login" placeholder="Enter Password" required>
+
+            <button type="submit" class="auth-button">Log in</button>
+
+            <p class="alternate-message">Dont have an account ? <a href="{% url "accounts:signup_view" %}">Create an account</a></p>
+        </div>
+    </form>
+</body>
+</html>
