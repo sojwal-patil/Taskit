@@ -2,6 +2,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
+import uuid
+
 
 
 class Workspace(models.Model):
@@ -231,3 +233,62 @@ class Attachment(models.Model):
 
     def __str__(self):
         return self.file_name
+
+
+class AIPlan(models.Model):
+    class Status(models.TextChoices):
+        REVIEW = "review", "Awaiting Review"
+        COMPLETED = "completed", "Completed"
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+    )
+
+    workspace = models.ForeignKey(
+        Workspace,
+        on_delete=models.CASCADE,
+        related_name="ai_plans",
+    )
+
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name="ai_plans",
+    )
+
+    request = models.TextField()
+    plan_data = models.JSONField(default=dict)
+    version = models.PositiveIntegerField(default=1)
+
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.REVIEW,
+    )
+
+    approved_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class AIPlanRevision(models.Model):
+    plan = models.ForeignKey(
+        AIPlan,
+        on_delete=models.CASCADE,
+        related_name="revisions",
+    )
+
+    version = models.PositiveIntegerField()
+    feedback = models.TextField(blank=True)
+    plan_data = models.JSONField(default=dict)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["plan", "version"],
+                name="unique_ai_plan_revision",
+            )
+        ]
+        ordering = ["version"]
