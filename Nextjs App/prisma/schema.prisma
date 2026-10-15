@@ -1,0 +1,269 @@
+// Prisma Schema for TASKIT
+// Neon PostgreSQL primary database
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  passwordHash String?
+  role      String?  @default("Product Designer")
+  avatar    String?
+  timezone  String   @default("Pacific Time (US & Canada) UTC-07:00")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  settings UserSettings?
+  goals    Goal[]
+  sessions FocusSession[]
+  history  ActivityHistory[]
+
+  @@map("users")
+}
+
+model UserSettings {
+  id                     String   @id @default(cuid())
+  userId                 String   @unique
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  timezone               String   @default("Pacific Time (US & Canada) UTC-07:00")
+  workingHoursStart      String   @default("09:00")
+  workingHoursEnd        String   @default("18:00")
+  focusDurationMins      Int      @default(25)
+  shortBreakMins         Int      @default(5)
+  longBreakMins          Int      @default(15)
+  dailySessionTarget     Int      @default(4)
+  ambientSound           String   @default("Rain & Forest")
+  chimesEnabled          Boolean  @default(true)
+  aiModelPreference      String   @default("llama-3.3-70b-versatile")
+  autoRecoveryThreshold  Int      @default(3) // Days of slip before triggering recovery
+  emailNotifications     Boolean  @default(true)
+  scheduleAlerts         Boolean  @default(true)
+  updatedAt              DateTime @updatedAt
+
+  @@map("user_settings")
+}
+
+enum GoalStatus {
+  ON_TRACK
+  AT_RISK
+  DELAYED
+  AHEAD
+  COMPLETED
+}
+
+model Goal {
+  id                   String     @id @default(cuid())
+  userId               String
+  user                 User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title                String
+  description          String
+  category             String     @default("Product Launch")
+  status               GoalStatus @default(ON_TRACK)
+  progress             Float      @default(0) // 0 to 100
+  targetDate           DateTime
+  effortAllocatedHours Int        @default(100)
+  effortSpentHours     Int        @default(0)
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
+
+  milestones     Milestone[]
+  tasks          Task[]
+  recoveryPlans  RecoveryPlan[]
+  focusSessions  FocusSession[]
+  activities     ActivityHistory[]
+
+  @@index([userId])
+  @@map("goals")
+}
+
+enum MilestoneStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  BLOCKED
+}
+
+model Milestone {
+  id          String          @id @default(cuid())
+  goalId      String
+  goal        Goal            @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  phaseNumber Int             @default(1)
+  progress    Float           @default(0) // 0 to 100
+  targetDate  DateTime?
+  status      MilestoneStatus @default(NOT_STARTED)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  tasks Task[]
+
+  @@index([goalId])
+  @@map("milestones")
+}
+
+enum TaskStatus {
+  READY
+  IN_PROGRESS
+  COMPLETED
+  BLOCKED
+}
+
+enum PriorityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+model Task {
+  id             String        @id @default(cuid())
+  goalId         String
+  goal           Goal          @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  milestoneId    String?
+  milestone      Milestone?    @relation(fields: [milestoneId], references: [id], onDelete: SetNull)
+  title          String
+  description    String?
+  status         TaskStatus    @default(READY)
+  priority       PriorityLevel @default(MEDIUM)
+  estimatedMins  Int           @default(30)
+  loggedMins     Int           @default(0)
+  dueDate        DateTime?
+  isNextStep     Boolean       @default(false)
+  order          Int           @default(0)
+  assigneeName   String?       @default("Elena Rostova")
+  assigneeRole   String?       @default("Product Designer")
+  assigneeAvatar String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  checklistItems ChecklistItem[]
+  focusSessions  FocusSession[]
+  activities     ActivityHistory[]
+
+  // Self-referential dependency relation
+  prerequisites TaskDependency[] @relation("DependentTask")
+  downstream    TaskDependency[] @relation("PrerequisiteTask")
+
+  @@index([goalId])
+  @@index([milestoneId])
+  @@map("tasks")
+}
+
+model TaskDependency {
+  id                 String  @id @default(cuid())
+  taskId             String
+  task               Task    @relation("DependentTask", fields: [taskId], references: [id], onDelete: Cascade)
+  dependsOnTaskId    String
+  dependsOnTask      Task    @relation("PrerequisiteTask", fields: [dependsOnTaskId], references: [id], onDelete: Cascade)
+  isCriticalPath     Boolean @default(false)
+  createdAt          DateTime @default(now())
+
+  @@unique([taskId, dependsOnTaskId])
+  @@map("task_dependencies")
+}
+
+model ChecklistItem {
+  id          String   @id @default(cuid())
+  taskId      String
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  title       String
+  isCompleted Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([taskId])
+  @@map("checklist_items")
+}
+
+model FocusSession {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  goalId          String?
+  goal            Goal?    @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  taskId          String?
+  task            Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  taskTitle       String
+  durationMins    Int      @default(25)
+  completedSteps  Int      @default(0)
+  totalSteps      Int      @default(0)
+  intervalNumber  Int      @default(1)
+  notes           String?
+  createdAt       DateTime @default(now())
+
+  @@index([userId])
+  @@index([goalId])
+  @@map("focus_sessions")
+}
+
+model ActivityHistory {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  goalId      String?
+  goal        Goal?    @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  taskId      String?
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  actionType  String   // CREATE_GOAL, UPDATE_TASK, COMPLETE_TASK, RECOVERY_APPLIED, FOCUS_SESSION
+  title       String
+  description String
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([goalId])
+  @@map("activity_history")
+}
+
+enum RecoveryStatus {
+  PROPOSED
+  APPLIED
+  DISMISSED
+}
+
+model RecoveryPlan {
+  id                 String             @id @default(cuid())
+  goalId             String
+  goal               Goal               @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  originalTargetDate DateTime
+  projectedSlipDays  Float              @default(4.0)
+  recoveredDays      Float              @default(0.0)
+  status             RecoveryStatus     @default(PROPOSED)
+  simulationNotes    String?
+  createdAt          DateTime           @default(now())
+  appliedAt          DateTime?
+
+  adjustments RecoveryAdjustment[]
+
+  @@index([goalId])
+  @@map("recovery_plans")
+}
+
+model RecoveryAdjustment {
+  id                  String       @id @default(cuid())
+  recoveryPlanId      String
+  recoveryPlan        RecoveryPlan @relation(fields: [recoveryPlanId], references: [id], onDelete: Cascade)
+  title               String
+  milestoneTitle      String?
+  taskTitle           String?
+  recoveryDays        Float        @default(1.0)
+  resourceRequirement String?
+  tradeoff            String?
+  isSelected          Boolean      @default(true)
+  createdAt           DateTime     @default(now())
+
+  @@index([recoveryPlanId])
+  @@map("recovery_adjustments")
+}

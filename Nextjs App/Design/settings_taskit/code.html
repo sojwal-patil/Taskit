@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#a3d1b6","background":"#f0fcf4","on-primary-fixed-variant":"#254f3a","surface":"#f0fcf4","on-secondary-fixed-variant":"#414944","on-primary-fixed":"#002113","surface-variant":"#d9e5de","on-tertiary-fixed":"#002114","primary-container":"#315b46","on-tertiary-fixed-variant":"#2c4d3d","on-tertiary-container":"#abd0ba","inverse-surface":"#28332e","on-secondary-fixed":"#161d19","surface-container-low":"#eaf7ef","on-error-container":"#93000a","inverse-on-surface":"#e7f4ec","tertiary-fixed-dim":"#aacfb9","on-primary":"#ffffff","secondary-fixed":"#dce4de","on-surface-variant":"#414943","primary-fixed-dim":"#a3d1b6","primary-fixed":"#bfedd1","on-surface":"#131e19","error-container":"#ffdad6","tertiary":"#214233","surface-dim":"#d0ddd5","primary":"#184330","on-secondary-container":"#5c645f","surface-container-high":"#dfebe3","surface-tint":"#3d6751","outline-variant":"#c1c8c1","secondary-fixed-dim":"#c0c8c2","tertiary-fixed":"#c6ebd5","surface-container":"#e4f1e9","on-primary-container":"#a3d1b6","tertiary-container":"#395a49","surface-container-highest":"#d9e5de","secondary":"#58605b","on-secondary":"#ffffff","surface-bright":"#f0fcf4","error":"#ba1a1a","on-error":"#ffffff","on-background":"#131e19","on-tertiary":"#ffffff","outline":"#717973","surface-container-lowest":"#ffffff","secondary-container":"#dae2db"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2.5rem","margin":"2rem","margin-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","gutter":"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem"},"fontFamily":{"display-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-sm px-space-md h-10"><img alt="Taskit Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WDIDLn5aJwzRFfXF56ClMGLR0GCzrV_4TsERGVlC-a1fPKEaLO0f59P6huq8sUSZrYaqnF5FbucDc6PtMbAc5FgSMQhDE1yXjXI0hFyj3IU2QUXOvGruIncB6XwTUXLMuwyVP7H1iF8cQdo6nngKn4dDEIyZ2LrkH-uCuQxB_iEpu6b7AeaMX3DQoOrQh4Wzi3v1JZEp2yyxfgeTWSlrpZsLpnRoTz5qVcEvbzhoP-skg2oUWBu5Lgj2g"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-semibold">Taskit</span></div><div class="px-space-md"><button class="w-full flex items-center justify-center gap-space-xs h-10 px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[0_1px_3px_rgba(32,43,38,0.08)] hover:bg-primary transition-all active:scale-[0.98]" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New Goal</span></button></div><nav class="flex flex-col gap-1 px-space-sm" data-active-classes="bg-surface-container text-primary-container font-label-lg relative before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-[3px] before:rounded-full before:bg-primary-container"><a class="flex items-center px-space-md h-9 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="home" href="#">Home</a><a class="flex items-center px-space-md h-9 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="my-goals" href="#">My Goals</a><a class="flex items-center px-space-md h-9 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="focus" href="#">Focus</a><a class="flex items-center px-space-md h-9 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="insights" href="#">Insights</a></nav></div><div class="flex flex-col gap-1 px-space-sm"><div class="flex items-center justify-between px-space-sm py-2 rounded-lg bg-surface-container/60 mb-2 cursor-pointer hover:bg-surface-container transition-colors"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-[18px] text-primary">workspaces</span><span class="font-label-sm text-label-sm text-on-surface truncate">Personal Workspace</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container text-primary-container font-label-lg relative before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-[3px] before:rounded-full before:bg-primary-container"><a aria-current="page" class="flex items-center px-space-md h-9 rounded-lg transition-colors bg-surface-container text-primary-container font-label-lg relative before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-[3px] before:rounded-full before:bg-primary-container" data-path="settings" href="#">Settings</a><a class="flex items-center px-space-md h-9 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-md text-body-md" data-path="help-and-feedback" href="#">Help &amp; Feedback</a></nav></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><div class="flex items-center w-full h-10 px-space-sm rounded-lg bg-surface-container-lowest shadow-[0_1px_3px_rgba(32,43,38,0.04)] text-on-surface-variant"><span class="material-symbols-outlined text-[18px] mr-space-xs text-outline">search</span><span class="flex-1 font-body-sm text-body-sm text-outline truncate">Search projects, tasks, milestones...</span><kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Tuesday, Oct 24</span></div><div class="h-4 w-px bg-surface-variant hidden md:block"></div><button class="relative p-space-xs rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer rounded-full hover:bg-surface-container transition-colors py-1 pr-2"><img alt="Elena Rostova" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY3aNwJt9vth0-GBR8Ddkj1tib_LwmNPiDeiU8ehI5Ml1HLMm5aTLxYkudz_dJq08FG_Ams47Y5N4gA7pBAq3rkPZ64Fq23vDPbEn2AAomrqTKlwml5yU19k570Rzc6mobipdhVpKt_Q5FP3Cf2fNepBFxFEE8Hm8ne55S8DaUM96DD3ym07-U2IVeZm_6deTIoFvcjyyAin4SkoIBfs3OMM_2xCmV4o1_gLQ4jfOven-VJlRrIICL"/><span class="material-symbols-outlined text-[16px] text-on-surface-variant">keyboard_arrow_down</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-space-lg lg:px-space-xl py-space-lg max-w-[1240px] mx-auto w-full">
+<!-- Header Section with Breadcrumb Meta -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg pb-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">
+<span>Preferences</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-semibold">Workspace Settings</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Settings</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-2xl">
+          Manage your account preferences, focus cadence, notification rules, and workspace defaults.
+        </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Auto-sync enabled
+        </span>
+</div>
+</div>
+<!-- Layout Grid: Sub-navigation alongside Settings Panels -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start pb-28">
+<!-- Sub-Navigation Navigation Rail (Desktop) / Horizontal Tabs (Mobile) -->
+<nav aria-label="Settings sub-navigation" class="lg:col-span-3 flex lg:flex-col gap-1.5 overflow-x-auto pb-2 lg:pb-0 sticky top-20 z-10">
+<button class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg bg-surface-container text-primary font-label-lg text-label-lg transition-all text-left shadow-sm group" type="button">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span>Profile &amp; Account</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-primary hidden lg:inline-block">arrow_forward_ios</span>
+</button>
+<button class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-lg text-label-lg transition-all text-left group" type="button">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary">timer</span>
+<span>Focus &amp; Timer Defaults</span>
+</span>
+<span class="text-[10px] font-label-sm bg-primary-fixed text-primary px-1.5 py-0.5 rounded ml-auto lg:ml-0">Smart</span>
+</button>
+<button class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-lg text-label-lg transition-all text-left group" type="button">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary">psychology</span>
+<span>Goal Engine &amp; AI</span>
+</span>
+</button>
+<button class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-lg text-label-lg transition-all text-left group" type="button">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary">notifications_active</span>
+<span>Notifications &amp; Alerts</span>
+</span>
+</button>
+<button class="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-lg text-label-lg transition-all text-left group" type="button">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary">sync_alt</span>
+<span>Integrations &amp; Export</span>
+</span>
+</button>
+<div class="mt-4 p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Personal Workspace</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Settings apply across all boards, timelines, and goal hierarchies assigned to your seat.
+          </p>
+</div>
+</nav>
+<!-- Main Form Settings Panels -->
+<div class="lg:col-span-9 flex flex-col gap-space-lg">
+<!-- SECTION 1: User Profile & Identity -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_4px_rgba(32,43,38,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">User Profile &amp; Identity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update your public credentials and regional workspace localization.</p>
+</div>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-primary">Pro Seat</span>
+</div>
+<!-- Avatar Meta Row -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<div class="relative group">
+<img alt="Elena Rostova" class="w-20 h-20 rounded-full object-cover shadow-sm ring-4 ring-surface-container-lowest" data-alt="Close-up portrait of Elena Rostova, a female professional product designer in her early thirties, smiling gently in warm natural office lighting, wearing a minimalist dark green knit sweater, soft atmospheric studio depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoIGw1uw10N1tQDKyn3Bm-UPbtXEKsJ9NF1Kpx__WMUG4OhDQDVxbYbtKMIsk7XAlmHosGgEhvOW9V_an6HYTK2V7fJo17sD3LSqq_zEZ7kabsL_1UhvriAFZTg-W9OKKTGdE8NTc76lcF-jem3JJe0V1DTxvgHwJ-tPSiARyEWiVgbaHjE5N7brZ4xFLUHk91PfIeRUErXWj6pKWeqUiO-aR33EnbDLG2GuxZm3hcCbvaDjhUglaT"/>
+<span class="absolute bottom-0 right-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-on-primary text-[12px] shadow">
+<span class="material-symbols-outlined text-[13px]">photo_camera</span>
+</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Elena Rostova</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lead Product Designer • Workspace Administrator</p>
+<div class="flex items-center gap-2.5 mt-2.5">
+<button class="h-8 px-3 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">upload</span>
+<span>Change photo</span>
+</button>
+<button class="h-8 px-3 rounded-lg bg-surface-container-lowest text-error hover:bg-error-container/40 transition-colors font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span>Remove</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Form Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Full Name</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="text" value="Elena Rostova"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Work Email</label>
+<div class="relative">
+<input class="w-full h-10 pl-3 pr-9 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="email" value="elena.rostova@taskit.design"/>
+<span class="material-symbols-outlined text-[18px] text-primary absolute right-2.5 top-2.5" title="Verified Domain">verified</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Job Role / Title</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="text" value="Lead Product Designer"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Timezone</label>
+<div class="relative">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all pr-8">
+<option selected="">Pacific Time (US &amp; Canada) UTC-07:00</option>
+<option>Eastern Time (US &amp; Canada) UTC-04:00</option>
+<option>Central European Time (Berlin) UTC+01:00</option>
+<option>Singapore Time (SGT) UTC+08:00</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Focus Session & Work Cadence Preferences -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_4px_rgba(32,43,38,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Focus Session &amp; Work Cadence</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configure how the Focus Engine blocks your daily sessions and break alerts.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">hourglass_top</span>
+</div>
+<!-- Duration Selector Cards -->
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Default Sprint Interval</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="cadence-selector">
+<button class="p-3 rounded-lg bg-surface-container-low text-left hover:bg-surface-container transition-all flex flex-col gap-1" type="button">
+<span class="font-label-sm text-label-sm text-outline">Classic</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">25 <span class="text-xs font-normal">min</span></span>
+<span class="font-body-sm text-[11px] text-outline">Standard Pomodoro</span>
+</button>
+<button class="p-3 rounded-lg bg-surface-container text-left transition-all flex flex-col gap-1 ring-2 ring-primary/40 relative" type="button">
+<span class="absolute top-2 right-2 text-primary material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Recommended</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">35 <span class="text-xs font-normal">min</span></span>
+<span class="font-body-sm text-[11px] text-primary">Taskit Smart Cadence</span>
+</button>
+<button class="p-3 rounded-lg bg-surface-container-low text-left hover:bg-surface-container transition-all flex flex-col gap-1" type="button">
+<span class="font-label-sm text-label-sm text-outline">Deep Work</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">50 <span class="text-xs font-normal">min</span></span>
+<span class="font-body-sm text-[11px] text-outline">Extended Flow State</span>
+</button>
+<button class="p-3 rounded-lg bg-surface-container-low text-left hover:bg-surface-container transition-all flex flex-col gap-1" type="button">
+<span class="font-label-sm text-label-sm text-outline">Flexible</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Custom</span>
+<span class="font-body-sm text-[11px] text-outline">Manual duration</span>
+</button>
+</div>
+</div>
+<!-- Break Controls and Daily Target -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<!-- Daily Target Micro Viz -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Daily Focus Target</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">3.0 hrs / 5 sprints</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recommended based on design sprint density.</p>
+</div>
+<!-- Inline Progress Gauge SVG -->
+<div class="mt-4 flex items-center gap-3">
+<svg class="w-12 h-12 flex-shrink-0" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3.5"></path>
+<text class="text-[9px] font-bold fill-current text-primary" text-anchor="middle" x="18" y="21">75%</text>
+</svg>
+<div class="flex flex-col">
+<span class="font-body-sm text-[12px] text-on-surface font-medium">Cadence health: Optimal</span>
+<span class="font-body-sm text-[11px] text-outline">Calculated across last 14 active days</span>
+</div>
+</div>
+</div>
+<!-- Break Durations -->
+<div class="flex flex-col justify-between gap-3 p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Short Rest Period</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Cooldown between focus sessions</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-md text-label-md text-primary font-bold">5 mins</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Long Rest Period</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Extended pause after 4 sprints</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-md text-label-md text-primary font-bold">15 mins</span>
+</div>
+</div>
+</div>
+<!-- Checkbox / Toggle Switches -->
+<div class="flex flex-col gap-3 pt-2">
+<!-- Toggle 1 -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">play_circle</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Auto-start next break cycle</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Seamlessly transition when time expires without requiring manual confirmation</span>
+</div>
+</div>
+<input checked="" class="sr-only peer" id="auto-breaks" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-checked:bg-primary rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all relative transition-colors"></div>
+</label>
+<!-- Toggle 2 -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">volume_up</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Acoustic chime audio feedback</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Subtle soft bowl chime to signal period completions</span>
+</div>
+</div>
+<input checked="" class="sr-only peer" id="audio-chime" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-checked:bg-primary rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all relative transition-colors"></div>
+</label>
+</div>
+</section>
+<!-- SECTION 3: Adaptive Planning & Recovery Automation -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_4px_rgba(32,43,38,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Adaptive Planning &amp; Recovery</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Set proactive parameters for milestone slippage and capacity leveling.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">troubleshoot</span>
+</div>
+<!-- Feature 1: Alert Toggle -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">warning</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Proactive Schedule Risk Alerts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Generate autonomous risk alerts when an in-flight task delays downstream critical path objectives.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Enabled</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-checked:bg-primary rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all transition-colors"></div>
+</label>
+</div>
+</div>
+<!-- Configuration Fields: Threshold and Hours -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Recovery Suggestion Threshold</label>
+<div class="relative">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all pr-8">
+<option>Slip exceeds 1 day</option>
+<option selected="">Slip exceeds 2 days (Recommended)</option>
+<option>Slip exceeds 3 days</option>
+<option>Slip exceeds 1 calendar week</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline">Taskit AI will auto-draft reschedule proposals once this limit is breached.</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Active Working Hours</label>
+<div class="h-10 px-3 rounded-lg bg-surface-container-low flex items-center justify-between text-on-surface font-body-md text-body-md">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">date_range</span>
+<span>Mon – Fri, 09:00 – 18:00</span>
+</span>
+<span class="text-xs font-label-sm text-outline font-medium">40 hrs / wk</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline">Used to balance timeline capacity and calculate true burn-down ratios.</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Data & Workspace Preferences -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_4px_rgba(32,43,38,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Data &amp; Workspace Defaults</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Control visibility scopes, data retention, and raw exports.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">database</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Visibility Settings -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-3">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Default Goal Visibility</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Determine who can inspect newly drafted objectives by default.</p>
+</div>
+<div class="relative">
+<select class="w-full h-9 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all pr-8">
+<option selected="">Team Workspace (Open across organization)</option>
+<option>Private (Only assigned collaborators)</option>
+<option>Restricted (Leads &amp; Admins)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2 top-2 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Export Backup -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-3">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Offline Archive &amp; Export</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Complete snapshot of goals, audit trails, and focus metrics.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded bg-surface-container-lowest text-primary hover:bg-surface-container transition-colors font-label-sm text-label-sm font-semibold flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export JSON</span>
+</button>
+<button class="h-9 px-3 rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors font-label-sm text-label-sm font-semibold flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">table_chart</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Persistent Floating Bottom Action Bar -->
+<aside aria-label="Settings Actions" class="fixed bottom-0 left-60 right-0 py-3.5 px-space-lg lg:px-space-xl bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(32,43,38,0.05)] z-40 flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm hidden sm:flex">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<span>Unsaved changes on <strong class="text-on-surface">Focus &amp; Work Cadence</strong></span>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<button class="h-10 px-4 rounded-lg bg-surface-container-low text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-colors active:scale-[0.98]" type="button">
+        Cancel / Reset
+      </button>
+<button class="h-10 px-6 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[0_1px_3px_rgba(32,43,38,0.08)] hover:bg-primary transition-all active:scale-[0.98] flex items-center gap-2" id="save-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save changes</span>
+</button>
+</div>
+</aside>
+</div>
+<script>
+  (function() {
+    const saveBtn = document.getElementById('save-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function() {
+        const originalContent = saveBtn.innerHTML;
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Saving...</span>';
+        saveBtn.classList.add('opacity-80');
+        setTimeout(() => {
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Saved!</span>';
+          setTimeout(() => {
+            saveBtn.innerHTML = originalContent;
+            saveBtn.classList.remove('opacity-80');
+          }, 1800);
+        }, 600);
+      });
+    }
+  })();
+</script></main></div></body></html>
