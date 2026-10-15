@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'landing',
     'accounts',
     'dashboard',
+    'project',
     'rest_framework'
 ]
 
