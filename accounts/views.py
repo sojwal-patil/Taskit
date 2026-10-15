@@ -1,8 +1,15 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.models import User
+from .models import User
 from django.contrib.auth import authenticate,login,logout
 import os
 from django.conf import settings
+
+# DRF
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from .seralizers import UserSeralizer
 # Create your views here.
 
 
@@ -35,3 +42,9 @@ def signup_view(request):
 def logout_view(request):
     logout(request)
     return redirect("accounts:login_view")
+
+class UserListView(APIView):
+    def get(self,request):
+        users = User.objects.all()
+        serializer = UserSeralizer(users,many=True)
+        return Response(serializer.data)
